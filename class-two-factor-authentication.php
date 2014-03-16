@@ -219,8 +219,4 @@ final class two_factor_authentication {
 	private function create_code() {
 		return substr( str_replace( '.', '', microtime( true ) ), -5 );
 	}
-	
-	private function set_user( $id = false ) {
-		
-	}
 }
