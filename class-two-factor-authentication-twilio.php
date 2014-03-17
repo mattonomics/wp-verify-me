@@ -18,9 +18,8 @@ class two_factor_authentication_twilio {
 		try {
 			$message = $this->client->account->messages->sendMessage( $this->twilio_number, $this->user_number, $text );
 		} catch ( Services_Twilio_RestException $e ) {
+			// need to add in error handling. if the text fails, no lock code will be generated.
 			$success = false;
-			print_r($e->getMessage());
-			print_r($this);
 		}
 		// doesn't matter what the error is, just don't do anything if there is one
 		return $success;
