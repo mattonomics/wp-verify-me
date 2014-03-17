@@ -67,14 +67,16 @@ final class two_factor_authentication {
 	
 	public function options_page() {
 		if ( !empty( $_GET['action'] ) && $_GET['action'] == 'lock' ) {
-			$reauth = '';
+			$reauth = $redir = '';
 			if ( isset( $_GET['reauth'] ) ) {
 				$reauth = '<p>' . __( 'Your code has expired. A new authorization code has been sent.', 'two_factor_auth' ) . '</p>';
+			}
+			if ( !empty( $_GET['redir'] ) ) {
+				$redir = '<input type="hidden" name="redir" value="' . esc_attr( $_GET['redir'] ) . '" />';
 			}
 			?><div class="wrap">
 			        <h2><?php _e( 'Enter Authorization Code', 'two_factor_auth' ); ?></h2>
 			        <form action="<?php echo admin_url('admin-post.php?action=two_factor_auth_unlock'); ?>" method="POST">
-						<?php echo $reauth; ?>
 						<table class="form-table">
 							<tr>
 								<th scope="row"><?php _e( 'Authorization Code', 'two_factor_auth' ); ?></th>
@@ -83,8 +85,10 @@ final class two_factor_authentication {
 								</td>
 							</tr>
 						</table>
+						<?php submit_button( __( 'Unlock', 'two_factor_auth' ) ); ?>
 						<?php wp_nonce_field( 'two_factor_auth_unlock' ); ?>
-			            <?php submit_button( __( 'Unlock', 'two_factor_auth' ) ); ?>
+						<?php echo $reauth; ?>
+						<?php echo $redir; ?>
 			        </form>
 			    </div><?php
 		} else {
@@ -164,6 +168,7 @@ final class two_factor_authentication {
 			*/
 			$this->set_props( $user->ID );
 			$this->create_lock( $this->create_code() );
+			$to = add_query_arg( array( 'page' => 'two-factor-auth', 'action' => 'lock', 'redir' => urlencode( $to ) ), admin_url( 'options-general.php' ) );
 		}
 		return $to;
 	}
@@ -188,7 +193,7 @@ final class two_factor_authentication {
 		if ( !empty( $_POST['unlock_code'] ) && $this->user['lock_code'] == trim( $_POST['unlock_code'] ) && $difference <= 20 ) {
 			delete_user_meta( get_current_user_id(), 'two_factor_auth_lock_code' );
 			delete_user_meta( get_current_user_id(), 'two_factor_auth_timestamp' );
-			wp_safe_redirect( admin_url() );
+			wp_safe_redirect( !empty( $_POST['redir'] ) ? esc_url_raw( $_POST['redir'] ) : admin_url() );
 			exit;
 		} 	elseif ( $difference > 20 && $this->create_lock( $this->create_code() ) ) {
 			// code expired. resend a new code, send to the auth page and notify the user that they're slow
