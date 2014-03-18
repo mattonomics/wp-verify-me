@@ -14,7 +14,7 @@ class two_factor_authentication_twilio {
 	
 	public function send( $code ) {
 		$success = true;
-		$text = sprintf( __( "This message was sent by: %s\nThe authorization code is: %d", 'two_factor_auth' ), site_url(), absint( $code ) );
+		$text = sprintf( __( "This message was sent by: %s\nThe authorization code is: %s", 'two_factor_auth' ), site_url(), $code );
 		try {
 			$message = $this->client->account->messages->sendMessage( $this->twilio_number, $this->user_number, $text );
 		} catch ( Services_Twilio_RestException $e ) {

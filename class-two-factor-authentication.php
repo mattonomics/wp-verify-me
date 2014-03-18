@@ -12,6 +12,7 @@ final class two_factor_authentication {
 	);
 	
 	public function __construct() {
+		global $pagenow;
 		$this->option = wp_parse_args( get_option('two_factor_auth'), array( 
 			'sid'	=> '',
 			'token'	=> '',
@@ -213,7 +214,7 @@ final class two_factor_authentication {
 		delete_user_meta( $this->user['id'], 'two_factor_auth_timestamp' );
 		if ( $this->twilio->send( $code ) ) {
 			// add them both back in
-			add_user_meta( $this->user['id'], 'two_factor_auth_lock_code', absint( $code ) );
+			add_user_meta( $this->user['id'], 'two_factor_auth_lock_code', $this->esc_alphanumeric( $code ) );
 			add_user_meta( $this->user['id'], 'two_factor_auth_timestamp', time() );
 			return true;
 		} else {
@@ -222,6 +223,10 @@ final class two_factor_authentication {
 	}
 	
 	private function create_code() {
-		return substr( str_replace( '.', '', microtime( true ) ), -5 );
+		return substr( wp_hash( microtime() ), rand( 0, 27 ), 5 );
+	}
+	
+	public function esc_alphanumeric( $text ) {
+		return preg_replace( '/\W|\s|_/', '', $text );
 	}
 }
