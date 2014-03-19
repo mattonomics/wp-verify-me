@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Two Factor Authentication 0.1-alpha\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/two-factor\n"
-"POT-Creation-Date: 2014-03-17 23:46:26+00:00\n"
+"POT-Creation-Date: 2014-03-19 15:45:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,69 +15,69 @@ msgstr ""
 #: class-two-factor-authentication-twilio.php:17
 msgid ""
 "This message was sent by: %s\n"
-"The authorization code is: %d"
+"The authorization code is: %s"
 msgstr ""
 
-#: class-two-factor-authentication.php:61
+#: class-two-factor-authentication.php:59
 msgid "Enter Twilio Account Info"
 msgstr ""
 
-#: class-two-factor-authentication.php:62
+#: class-two-factor-authentication.php:60
 msgid "Twilio Account SID"
 msgstr ""
 
-#: class-two-factor-authentication.php:63
+#: class-two-factor-authentication.php:61
 msgid "Twilio Auth Token"
 msgstr ""
 
-#: class-two-factor-authentication.php:64
+#: class-two-factor-authentication.php:62
 msgid "Twilio Phone Number"
 msgstr ""
 
 #. #-#-#-#-#  two-factor.pot (Two Factor Authentication 0.1-alpha)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: class-two-factor-authentication.php:68
-#: class-two-factor-authentication.php:140
+#: class-two-factor-authentication.php:66
+#: class-two-factor-authentication.php:138
 msgid "Two Factor Authentication"
 msgstr ""
 
-#: class-two-factor-authentication.php:75
+#: class-two-factor-authentication.php:73
 msgid "Your code has expired. A new authorization code has been sent."
 msgstr ""
 
-#: class-two-factor-authentication.php:81
+#: class-two-factor-authentication.php:79
 msgid "Enter Authorization Code"
 msgstr ""
 
-#: class-two-factor-authentication.php:85
+#: class-two-factor-authentication.php:83
 msgid "Authorization Code"
 msgstr ""
 
-#: class-two-factor-authentication.php:91
+#: class-two-factor-authentication.php:89
 msgid "Unlock"
 msgstr ""
 
-#: class-two-factor-authentication.php:99
+#: class-two-factor-authentication.php:97
 msgid "Two Factor Authentication: Twilio Account Info"
 msgstr ""
 
-#: class-two-factor-authentication.php:110
+#: class-two-factor-authentication.php:108
 msgid ""
-"If you do not have a <a href=\"%1$s\">Twilio</a> account, <a href=\"%1$s"
-"\">sign up</a>."
+"If you do not have a <a href=\"%1$s\" target=\"_blank\">Twilio</a> account, "
+"<a href=\"%1$s\">sign up</a>."
 msgstr ""
 
-#: class-two-factor-authentication.php:124
+#: class-two-factor-authentication.php:122
 msgid ""
 "Be sure to include the country code. US numbers will be in the form <code>+1 "
 "555-123-1234</code>"
 msgstr ""
 
-#: class-two-factor-authentication.php:143
+#: class-two-factor-authentication.php:141
 msgid "Your Phone Number"
 msgstr ""
 
-#: class-two-factor-authentication.php:147
+#: class-two-factor-authentication.php:145
 msgid ""
 "Enter a phone number where you can receive SMS. <u>Please include a country "
 "code</u>."
