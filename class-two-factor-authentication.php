@@ -56,7 +56,7 @@ final class two_factor_authentication {
 	
 	private function settings() {
 		register_setting( 'two_factor_auth_group', 'two_factor_auth', array( $this, 'sanitize_settings' ) );
-		add_settings_section( 'two-factor-auth', __( 'Enter Twilio Account Info' ), array( $this, 'explain_twilio' ), 'two-factor-auth' );
+		add_settings_section( 'two-factor-auth', __( 'Enter Twilio Account Info', 'two_factor_auth' ), array( $this, 'explain_twilio' ), 'two-factor-auth' );
 		add_settings_field( 'two-factor-auth-sid', __( 'Twilio Account SID', 'two_factor_auth' ), array( $this, 'sid_callback' ), 'two-factor-auth', 'two-factor-auth' );
 		add_settings_field( 'two-factor-auth-token', __( 'Twilio Auth Token', 'two_factor_auth' ), array( $this, 'token_callback' ), 'two-factor-auth', 'two-factor-auth' );
 		add_settings_field( 'two-factor-auth-phone', __( 'Twilio Phone Number', 'two_factor_auth' ), array( $this, 'phone_callback' ), 'two-factor-auth', 'two-factor-auth' );
