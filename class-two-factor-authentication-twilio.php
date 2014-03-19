@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || die;
+
 class two_factor_authentication_twilio {
 	
 	private $twilio_number;
