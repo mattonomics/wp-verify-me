@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Two Factor Authentication 0.1-alpha\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/two-factor\n"
-"POT-Creation-Date: 2014-03-19 15:45:15+00:00\n"
+"POT-Creation-Date: 2014-03-19 15:49:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,8 +63,8 @@ msgstr ""
 
 #: class-two-factor-authentication.php:108
 msgid ""
-"If you do not have a <a href=\"%1$s\" target=\"_blank\">Twilio</a> account, "
-"<a href=\"%1$s\">sign up</a>."
+"If you do not have a Twilio account, <a href=\"%1$s\" target=\"_blank\">sign "
+"up</a>."
 msgstr ""
 
 #: class-two-factor-authentication.php:122
