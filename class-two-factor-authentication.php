@@ -105,7 +105,7 @@ final class two_factor_authentication {
 	}
 	
 	public function explain_twilio() {
-		echo '<p>', sprintf( __( 'If you do not have a <a href="%1$s" target="_blank">Twilio</a> account, <a href="%1$s">sign up</a>.', 'two_factor_auth' ), 'https://www.twilio.com/try-twilio' ), '</p>';
+		echo '<p>', sprintf( __( 'If you do not have a Twilio account, <a href="%1$s" target="_blank">sign up</a>.', 'two_factor_auth' ), 'https://www.twilio.com/try-twilio' ), '</p>';
 	}
 	
 	public function sid_callback() {
