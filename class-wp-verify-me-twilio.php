@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || die;
 
-class two_factor_authentication_twilio {
+class wp_verify_me_twilio {
 	
 	private $twilio_number;
 	private $user_number;
@@ -16,7 +16,7 @@ class two_factor_authentication_twilio {
 	
 	public function send( $code ) {
 		$success = true;
-		$text = sprintf( __( "This message was sent by: %s\nThe authorization code is: %s", 'two_factor_auth' ), site_url(), $code );
+		$text = sprintf( __( "This message was sent by: %s\nThe authorization code is: %s", 'wp_verify_me' ), site_url(), $code );
 		try {
 			$message = $this->client->account->messages->sendMessage( $this->twilio_number, $this->user_number, $text );
 		} catch ( Services_Twilio_RestException $e ) {

@@ -1,12 +1,12 @@
 <?php
 
 /*
-	Plugin Name: Two Factor Authentication
-	Version: 0.1-alpha
+	Plugin Name: wpVerify.me
+	Version: 0.1
 	Description: Simple two factor authentication using Twilio.
 	Author: Matt Gross
 	Author URI: http://mattonomics.com
-	Text Domain: two_factor_auth
+	Text Domain: wp_verify_me
 	Domain Path: /languages
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,17 +30,17 @@
 
 defined( 'ABSPATH' ) || die;
 
-add_action( 'init', 'instance_two_factor_authentication' );
-function instance_two_factor_authentication() {
+add_action( 'init', 'instance_wp_verify_me' );
+function instance_wp_verify_me() {
 	global $pagenow;
-	if ( ( is_admin() || $pagenow == 'wp-login.php' ) && !class_exists( 'two_factor_authentication' ) ) {
-		require_once( 'class-two-factor-authentication-twilio.php' );
-		require_once( 'class-two-factor-authentication.php' );
-		new two_factor_authentication;
+	if ( ( is_admin() || $pagenow == 'wp-login.php' ) && !class_exists( 'wp_verify_me' ) ) {
+		require_once( 'class-wp-verify-me-twilio.php' );
+		require_once( 'class-wp-verify-me.php' );
+		new wp_verify_me;
 	}
 }
 
-add_action( 'plugins_loaded', 'two_factor_authentication_textdomain' );
-function two_factor_authentication_textdomain() {
-	load_plugin_textdomain( 'two_factor_auth', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+add_action( 'plugins_loaded', 'wp_verify_me_textdomain' );
+function wp_verify_me_textdomain() {
+	load_plugin_textdomain( 'wp_verify_me', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
