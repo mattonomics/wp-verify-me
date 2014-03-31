@@ -1,4 +1,4 @@
-# wpVerifyme
+# wpVerifyMe
 
 This simple implementation of two factor authorization uses [Twilio](https://www.twilio.com/try-twilio) to send a 5 digit code to your cell phone.
 
